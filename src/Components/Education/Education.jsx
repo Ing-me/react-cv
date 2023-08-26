@@ -1,7 +1,4 @@
-import plus from '../../assets/plus-custom.png';
-
-const Form = ({title, src, isActive, onShow}) => {
-
+const Education = ({title, src, isActive, onShow}) => {
     return(
         <div className="form-cv">            
             <div className="infoPerso">
@@ -12,46 +9,35 @@ const Form = ({title, src, isActive, onShow}) => {
             </div> 
             { isActive ?  (<form id='infoForm'>
                         <div className='fieldForm'>
-                            <label htmlFor="Fullname">Full name:</label>
+                            <label htmlFor="schoolName">School name:</label>
                             <input 
                                 type="text" 
-                                id='Fullname' 
+                                id='schoolName' 
                                 minLength="3" 
                                 maxLength="50" 
-                                placeholder='Your fullname'
+                                placeholder='School name'
                                 required
                             />
                         </div>
                         <div className='fieldForm'>
-                            <label htmlFor="Email">Email:</label>
+                            <label htmlFor="titleStudy">Title of study:</label>
                             <input 
-                                type="email" 
-                                id='email' 
+                                type="text" 
+                                id='titleStudy' 
                                 minLength="3" 
                                 maxLength="100" 
-                                placeholder='your email' 
+                                placeholder='Title of study' 
                                 required
                             />
                         </div>
                         <div className='fieldForm'>
-                            <label htmlFor="Phone">Phone:</label>
+                            <label htmlFor="dateStudy">Date of study:</label>
                             <input 
-                                type="phone" 
-                                id='phone' 
+                                type="date" 
+                                id='dateStudy' 
                                 minLength="3" 
                                 maxLength="50" 
-                                placeholder='your phone' 
-                                required
-                            />
-                        </div>
-                        <div className='fieldForm'>
-                            <label htmlFor="Addresse">Address:</label>
-                            <input 
-                                type="text" 
-                                id='adresse' 
-                                minLength="3" 
-                                maxLength="50" 
-                                placeholder='your address'
+                                placeholder='Date of study' 
                                 required
                             />
                         </div>
@@ -66,4 +52,4 @@ const Form = ({title, src, isActive, onShow}) => {
     )
 }
 
-export default Form;
+export default Education;

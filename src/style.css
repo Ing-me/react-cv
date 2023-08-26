@@ -12,7 +12,7 @@
     --fontSize: 16px;
     --bg-clr-primary:#111827;
     --bg-clr-secondary:#d1d5db;
-    --text-clr: #c2410c;
+    --text-clr: #044C20;
     --btn-bg-clr-primary: #5f99be;
     --btn-bg-clr-secondary: #111b20;
     --fontFamily: 'Roboto', sans-serif;
@@ -92,10 +92,24 @@
     width: 50%;
     margin: auto;
     font-family: var(--fontFamily);
-    border: 1px solid red;
+    padding: 40px 60px;
+    border-radius: 15px;
+    flex-direction: column;
+    background-image: linear-gradient(to bottom right, #305170, #6DFC6B);
+}
+.personalSection,
+.educationSection,
+.experiencesSection{
+    margin-bottom: 20px;
+    width: 100%;
+    padding: 20px;
+    background-image: linear-gradient(to bottom right, #FDFCFB, #E2D1C3);
+    opacity: .8;
+    border-radius: 15px;
 }
 .form-cv{
     width: 100%;
+   
 }
 .infoPerso{
     display: flex;
@@ -105,15 +119,29 @@
     margin: auto;
     font-family: var(--fontFamily);
 }
-.infoPerso > img{
-    width: 3rem;
+.infoPerso > h2{
+    font-size: 1.2rem;
+    color: var(--text-clr);
+}
+.infoPerso > button{
+    padding: 10px;
+    border: none;
+    border-radius: 10px;
+    background-color: transparent;
+}
+.infoPerso > button > img{
+    width: 2.5rem;
+    cursor: pointer;
 }
 #infoForm{
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    width: 100%;
+    width: 80%;
+    margin: auto;
+    padding-top: 20px; 
+    border-top: 2px solid rgb(100, 201, 135);
 }
 .fieldForm{
     width: 100%;
@@ -129,15 +157,39 @@
     margin-top: 5px;
     color: var(--text-clr);
 }
-.fieldForm > input{
-    font-size: 1.2rem;
+.fieldForm > input,
+.fieldForm > textarea{
+    font-size: 1rem;
     padding: 3px 15px;
     width: 60%;
     border: none;
     border-radius: 15px;
     margin: 5px 0px;
 }
+.buttonSubmit{
+    margin:15px;
+    padding: 15px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-top: 2px solid rgb(100, 201, 135);
+}
 
+.buttonSubmit > button{
+    padding: 8px 20px;
+    font-size: 1.1rem;
+    font-family: var(--fontFamily);
+    border: none;
+    border-radius: 10px;
+    color: var(--text-clr);
+    cursor: pointer;
+}
+.buttonSubmit > button:hover{
+    padding: 10px 22px;
+    background-color: rgb(134, 215, 128);
+    color: white;
+}
 @media screen and (max-width: 480px) {
   .navigation{
     width: 100%;
@@ -146,13 +198,22 @@
     width: 90%;
   }
   .main-content{
-    margin: 0;
+    margin: auto;
     width: 90%;
+    padding: 10px 20px;
   }
+  .personalSection,
+  .educationSection,
+  .experiencesSection{
+    padding: 10px;
+}
   .infoPerso{
     display: flex;
     width: 100%;
     margin:auto
+  }
+  .fieldForm > label{
+    font-size: .8rem;
   }
 }
 @media screen and (max-width: 768px) {
@@ -163,9 +224,15 @@
     width: 90%;
     } 
     .main-content{
-        margin: 0px;
-        width: 100%;
+        margin: auto;
+        width: 90%;
+        padding: 20px;
     }
+    .personalSection,
+    .educationSection,
+    .experiencesSection{
+      padding: 10px;
+  }
     .form-cv{
         width: 100%;
     }

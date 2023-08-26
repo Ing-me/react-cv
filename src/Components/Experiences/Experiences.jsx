@@ -1,8 +1,5 @@
-import plus from '../../assets/plus-custom.png';
-
-const Form = ({title, src, isActive, onShow}) => {
-
-    return(
+const Experiences = ({title, src, isActive, onShow}) => {
+    return (
         <div className="form-cv">            
             <div className="infoPerso">
                 <h2>{title}</h2>
@@ -12,46 +9,55 @@ const Form = ({title, src, isActive, onShow}) => {
             </div> 
             { isActive ?  (<form id='infoForm'>
                         <div className='fieldForm'>
-                            <label htmlFor="Fullname">Full name:</label>
+                            <label htmlFor="companyName">Company name:</label>
                             <input 
                                 type="text" 
-                                id='Fullname' 
+                                id='companyName' 
                                 minLength="3" 
                                 maxLength="50" 
-                                placeholder='Your fullname'
+                                placeholder='Comapany name'
                                 required
                             />
                         </div>
                         <div className='fieldForm'>
-                            <label htmlFor="Email">Email:</label>
+                            <label htmlFor="positionTitle">Position title</label>
                             <input 
-                                type="email" 
-                                id='email' 
+                                type="text" 
+                                id='posisitionTitle' 
                                 minLength="3" 
                                 maxLength="100" 
-                                placeholder='your email' 
+                                placeholder='Position title' 
                                 required
                             />
                         </div>
                         <div className='fieldForm'>
-                            <label htmlFor="Phone">Phone:</label>
+                            <label htmlFor="fromDate">From:</label>
                             <input 
-                                type="phone" 
-                                id='phone' 
+                                type="date" 
+                                id='fromDate' 
                                 minLength="3" 
                                 maxLength="50" 
-                                placeholder='your phone' 
                                 required
                             />
                         </div>
                         <div className='fieldForm'>
-                            <label htmlFor="Addresse">Address:</label>
+                            <label htmlFor="toDate">To:</label>
                             <input 
+                                type="date" 
+                                id='toDate' 
+                                minLength="3" 
+                                maxLength="50" 
+                                required
+                            />
+                        </div>
+                        <div className='fieldForm'>
+                            <label htmlFor="Responsibilities">Responsibilities:</label>
+                            <textarea 
                                 type="text" 
-                                id='adresse' 
+                                id='Responsibilities' 
                                 minLength="3" 
-                                maxLength="50" 
-                                placeholder='your address'
+                                maxLength="250" 
+                                cols="5"
                                 required
                             />
                         </div>
@@ -62,8 +68,6 @@ const Form = ({title, src, isActive, onShow}) => {
 
                 }
         </div>
-        
     )
 }
-
-export default Form;
+export default Experiences;

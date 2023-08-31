@@ -1,6 +1,27 @@
-import plus from '../../assets/plus-custom.png';
+import { useState } from 'react';
 
-const Form = ({title, src, isActive, onShow}) => {
+const Personal = ({title, src, isActive, onShow, onSubmit}) => {
+    const [personal, setPersonal] = useState({fullname:'', email:'', phone:'', address:''})
+
+    const handleFullName = (e) =>{
+        setPersonal({...personal, fullname: e.target.value})
+    }
+
+    const handleFullEmail= (e) =>{
+        setPersonal({...personal, email: e.target.value})
+    }
+    const handleFullPhone = (e) =>{
+        setPersonal({...personal, phone: e.target.value})
+    }
+    const handleFullAddress = (e) =>{
+        setPersonal({...personal, address: e.target.value})
+    }
+    const handleOnSubmit = (e) => {
+        e.preventDefault();
+        console.log(personal)
+        onSubmit(personal)
+        setPersonal({fullname:'', email:'', phone:'', address:''})
+    }
 
     return(
         <div className="form-cv">            
@@ -10,7 +31,8 @@ const Form = ({title, src, isActive, onShow}) => {
                     <img src={src} alt='plus'/>
                     </button>  
             </div> 
-            { isActive ?  (<form id='infoForm'>
+        { isActive ?  (<form onSubmit={e => {handleOnSubmit(e)}} id='infoForm'>
+                       
                         <div className='fieldForm'>
                             <label htmlFor="Fullname">Full name:</label>
                             <input 
@@ -20,43 +42,51 @@ const Form = ({title, src, isActive, onShow}) => {
                                 maxLength="50" 
                                 placeholder='Your fullname'
                                 required
+                                value={personal.fullname}
+                                onChange={handleFullName}
                             />
                         </div>
                         <div className='fieldForm'>
                             <label htmlFor="Email">Email:</label>
                             <input 
                                 type="email" 
-                                id='email' 
+                                id='Email' 
                                 minLength="3" 
                                 maxLength="100" 
                                 placeholder='your email' 
                                 required
+                                value={personal.email}
+                                onChange={handleFullEmail}
                             />
                         </div>
                         <div className='fieldForm'>
                             <label htmlFor="Phone">Phone:</label>
                             <input 
                                 type="phone" 
-                                id='phone' 
+                                id='Phone' 
                                 minLength="3" 
                                 maxLength="50" 
                                 placeholder='your phone' 
                                 required
+                                value={personal.phone}
+                                onChange={handleFullPhone}
                             />
                         </div>
                         <div className='fieldForm'>
-                            <label htmlFor="Addresse">Address:</label>
+                            <label htmlFor="Address">Address:</label>
                             <input 
                                 type="text" 
-                                id='adresse' 
+                                id='Address' 
                                 minLength="3" 
                                 maxLength="50" 
                                 placeholder='your address'
                                 required
+                                value={personal.address}
+                                onChange={handleFullAddress}
                             />
                         </div>
                         <div className='buttonSubmit'>
-                            <button type='button'>Submit</button>
+                            <button type='submit'>Submit</button>
                         </div>
                     </form>) : ''
 
@@ -66,4 +96,4 @@ const Form = ({title, src, isActive, onShow}) => {
     )
 }
 
-export default Form;
+export default Personal;

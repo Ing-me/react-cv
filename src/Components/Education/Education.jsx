@@ -1,4 +1,26 @@
-const Education = ({title, src, isActive, onShow}) => {
+import { useState } from "react"
+
+const Education = ({title, src, isActive, onShow, onSubmit}) => {
+
+    const [education, setEducation] = useState({schoolname:'', titleStudy:'', dateStudy:''})
+
+    const handSchoolName = (e) =>{
+        setEducation({...education, schoolname: e.target.value})
+    }
+
+    const handleTitleStudy= (e) =>{
+        setEducation({...education, titleStudy: e.target.value})
+    }
+    const handleDateStudy = (e) =>{
+        setEducation({...education, dateStudy: e.target.value})
+    }
+    const handleOnSubmit = (e) => {
+        e.preventDefault();
+         console.log(education)
+        onSubmit(education)
+        setEducation({schoolname:'', titleStudy:'', dateStudy:''})
+    }
+   
     return(
         <div className="form-cv">            
             <div className="infoPerso">
@@ -7,7 +29,7 @@ const Education = ({title, src, isActive, onShow}) => {
                     <img src={src} alt='plus'/>
                     </button>  
             </div> 
-            { isActive ?  (<form id='infoForm'>
+            { isActive ?  (<form onSubmit={(e) => {handleOnSubmit(e)}} id='infoForm'>
                         <div className='fieldForm'>
                             <label htmlFor="schoolName">School name:</label>
                             <input 
@@ -16,6 +38,8 @@ const Education = ({title, src, isActive, onShow}) => {
                                 minLength="3" 
                                 maxLength="50" 
                                 placeholder='School name'
+                                value={education.schoolname}
+                                onChange={handSchoolName}
                                 required
                             />
                         </div>
@@ -27,6 +51,8 @@ const Education = ({title, src, isActive, onShow}) => {
                                 minLength="3" 
                                 maxLength="100" 
                                 placeholder='Title of study' 
+                                value={education.titleStudy}
+                                onChange={handleTitleStudy}
                                 required
                             />
                         </div>
@@ -37,12 +63,15 @@ const Education = ({title, src, isActive, onShow}) => {
                                 id='dateStudy' 
                                 minLength="3" 
                                 maxLength="50" 
-                                placeholder='Date of study' 
+                                name="from"
+                                value={education.dateStudy}
+                                onChange={handleDateStudy}
                                 required
                             />
                         </div>
+                       
                         <div className='buttonSubmit'>
-                            <button type='button'>Submit</button>
+                            <button type='submit'>Submit</button>
                         </div>
                     </form>) : ''
 

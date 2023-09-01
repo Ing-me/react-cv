@@ -191,6 +191,101 @@
     background-color: rgb(134, 215, 128);
     color: white;
 }
+
+.viewButton{
+    width: 40%;
+    margin-bottom: 10px;
+    padding: 10px;
+    font-size: 1.1rem;
+    font-family: var(--fontFamily);
+    font-weight: bold;
+    border: none;
+    border-radius: 5px;
+    opacity: .7;
+    cursor: pointer;
+} 
+.result{
+    width: 100%;
+}
+.output{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    background-color: white;
+    justify-content: center;
+    align-items: center;
+}
+.persoOutput{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin: 15px;
+    width: 100%;
+}
+.persoOutput > p{
+    margin: 2px 0px;
+}
+.divider{
+    background-color: black;
+    width: 80%;
+    height: 2px;
+}
+.persoExperience{
+    padding-left: 15px;
+    margin: 15px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.persoExperience > p{
+    margin: 2px;
+    line-height: 1.5;
+    width: 100%;
+    padding: 0 20px;
+}
+.persoExperience > p > span{
+    margin-right: 50px;
+    font-weight: bold;
+}
+.persoEducation{
+    padding-left: 15px;
+    margin: 15px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.persoEducation > p{
+    margin: 2px;
+    line-height: 1.5;
+    width: 100%;
+    padding: 0 20px;
+}
+.persoEducation > p > span{
+    margin-right: 50px;
+    font-weight: bold;
+}
+
+.downloadpdf{
+    margin: 20px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.downloadpdf > button{
+    padding: 12px;
+    border: 1px solid rgb(134, 215, 128);
+    font-size: 1rem;
+    font-family: var(--fontFamily);
+    text-transform: uppercase;
+    cursor: pointer;
+}
+
 @media screen and (max-width: 480px) {
   .navigation{
     width: 100%;

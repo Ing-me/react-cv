@@ -6,12 +6,14 @@ import Personal from "../Forms/Form";
 import plus from '../../assets/plus-custom.png';
 import Education from "../Education/Education";
 import Experiences from "../Experiences/Experiences";
+import Output from "../Result/Rresult";
 
 const ThemeMode = () => {
     
     const [theme, setTheme] = useState({color: 'light-theme', image: moon})
     const [activeIndex, setActiveIndex] = useState(false);
     const [array, setArray] = useState([]);
+    const [isClicked, setIsClicked] = useState(false);
 
     const toggleTheme = () => {
         theme.color === 'dark-theme' ? setTheme({color: 'light-theme', image: moon}) : setTheme({color: 'dark-theme', image: sun})
@@ -32,7 +34,10 @@ const ThemeMode = () => {
         setArray([...array,data])
     }
 
-    console.log(array)
+    const getIsClickedTrue = (data1, data2) => {
+        setIsClicked(data1);
+        setArray(data2)
+    }
 
     return(
         
@@ -48,8 +53,8 @@ const ThemeMode = () => {
             </div>
             <Navbar background={theme.color === 'dark-theme' ? 'light-theme' : 'dark-theme' }/>
             <div className="main-content">
-            { array.length >= 3 ? <button className="viewButton">View cv</button> : '' }                
-                <div className="personalSection">
+            { array.length >= 3 ? <button onClick={ () => setIsClicked(true)} className="viewButton">View my cv</button> : '' }                
+             {isClicked === false && <div className="personalSection">
                     <Personal
                         title="Your information"
                         src={plus}
@@ -57,9 +62,9 @@ const ThemeMode = () => {
                         onShow={() => setActiveIndex(0)}
                         onSubmit = {getData}
                     />
-                </div>
-                
-                <div className="educationSection">
+                </div>}
+               
+                {isClicked === false && <div className="educationSection">
                     <Education 
                         title="Your Education"
                         src={plus}
@@ -67,9 +72,9 @@ const ThemeMode = () => {
                         onShow={() => setActiveIndex(1)}
                         onSubmit={getDataFromeducation}
                     />
-                </div>
+                </div>}
                 
-                <div className="experiencesSection">
+                {isClicked === false && <div className="experiencesSection">
                     <Experiences
                         title="Your experiences"
                         src={plus}
@@ -77,7 +82,9 @@ const ThemeMode = () => {
                         onShow={() => setActiveIndex(2)}
                         onSubmit={getDataFromExperiences}
                     />
-                </div>
+                </div> }
+
+                {isClicked === true && <Output myArray={array} onSubmit={getIsClickedTrue} /> }
 
             </div>
             
